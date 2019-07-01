@@ -54,7 +54,9 @@ node_ptr removeFromList(node_ptr list, int elem, int removeAll) {
     ptr = list->next;
     if (list->data == elem) {
         free(list);
-        return ptr;
+        if (!removeAll)
+            return ptr;
+        list = ptr;
     }
 
     last = list;
@@ -67,7 +69,6 @@ node_ptr removeFromList(node_ptr list, int elem, int removeAll) {
             if (!removeAll)
                 break;
         } else {
-
             last = ptr;
             ptr = ptr->next;
 
