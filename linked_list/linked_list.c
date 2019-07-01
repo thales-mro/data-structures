@@ -89,6 +89,13 @@ node_ptr removeAll(node_ptr list, int elem) {
 node_ptr copyList(node_ptr list) {
     node_ptr newList, prev;
 
+    if (list != NULL) {
+        newList = malloc(sizeof(node));
+        newList->data = list->data;
+        newList->next = NULL;
+        list = list->next;
+    }
+
     prev = newList;
     while(list != NULL) {
         node_ptr aux = malloc(sizeof(node));
@@ -99,6 +106,20 @@ node_ptr copyList(node_ptr list) {
         list = list->next;
     }
 
-
     return newList;
+}
+
+node_ptr invertList(node_ptr list) {
+    node_ptr invList, prev, ptr;
+
+    invList = NULL;
+    ptr = list;
+    while(ptr != NULL) {
+        prev = ptr;
+        ptr = ptr->next;
+        prev->next = invList;
+        invList = prev;
+    }
+
+    return invList;
 }

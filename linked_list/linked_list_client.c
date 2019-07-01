@@ -42,6 +42,12 @@ int main() {
     printf("Original List: ");
     printList(list);
 
+    printf("Copied List is about to be inverted: \n");
+    copy = invertList(copy);
+    printf("Inverted List: ");
+    printList(copy);
+
     freeList(list);
+    freeList(copy);
     return 0;
 }
