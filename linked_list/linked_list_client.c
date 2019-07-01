@@ -4,7 +4,7 @@
 
 int main() {
     int n, i, aux;
-    node_ptr list, copy, ptr;
+    node_ptr list, secondList, ptr;
 
     list = createList();
 
@@ -37,17 +37,23 @@ int main() {
     printList(list);
 
     printf("The remaining list is about to be copied:\nCopied list: ");
-    copy = copyList(list);
-    printList(copy);
+    secondList = copyList(list);
+    printList(secondList);
     printf("Original List: ");
     printList(list);
 
     printf("Copied List is about to be inverted: \n");
-    copy = invertList(copy);
+    secondList = invertList(secondList);
     printf("Inverted List: ");
-    printList(copy);
+    printList(secondList);
+
+    printf("Contatenating original and inverted lists:\n");
+    concatLists(list, secondList);
+    printList(list);
 
     freeList(list);
-    freeList(copy);
+    freeList(secondList);
+
+
     return 0;
 }

@@ -123,3 +123,10 @@ node_ptr invertList(node_ptr list) {
 
     return invList;
 }
+
+node_ptr concatLists(node_ptr list1, node_ptr list2) {
+    if (list1 == NULL)
+        return list2;
+    list1->next = concatLists(list1->next, list2);
+    return list1;
+}

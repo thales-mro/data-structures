@@ -22,3 +22,5 @@ node_ptr removeAll(node_ptr list, int elem);
 node_ptr copyList(node_ptr list);
 
 node_ptr invertList(node_ptr list);
+
+node_ptr concatLists(node_ptr list1, node_ptr list2);
