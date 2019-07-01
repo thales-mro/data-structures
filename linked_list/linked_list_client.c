@@ -4,7 +4,7 @@
 
 int main() {
     int n, i, aux;
-    node_ptr list, ptr;
+    node_ptr list, copy, ptr;
 
     list = createList();
 
@@ -34,6 +34,12 @@ int main() {
     printf("Please insert element to be removed (all occurences): ");
     scanf("%d", &aux);
     list = removeAll(list, aux);
+    printList(list);
+
+    printf("The remaining list is about to be copied:\nCopied list: ");
+    copy = copyList(list);
+    printList(copy);
+    printf("Original List: ");
     printList(list);
 
     freeList(list);

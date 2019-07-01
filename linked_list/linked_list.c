@@ -85,3 +85,20 @@ node_ptr removeFirst(node_ptr list, int elem) {
 node_ptr removeAll(node_ptr list, int elem) {
     return removeFromList(list, elem, 1);
 }
+
+node_ptr copyList(node_ptr list) {
+    node_ptr newList, prev;
+
+    prev = newList;
+    while(list != NULL) {
+        node_ptr aux = malloc(sizeof(node));
+        aux->data = list->data;
+        aux->next = NULL;
+        prev->next = aux;
+        prev = prev->next;
+        list = list->next;
+    }
+
+
+    return newList;
+}

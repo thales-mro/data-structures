@@ -18,3 +18,5 @@ node_ptr find(node_ptr list, int elem);
 node_ptr removeFirst(node_ptr list, int elem);
 
 node_ptr removeAll(node_ptr list, int elem);
+
+node_ptr copyList(node_ptr list);
