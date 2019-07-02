@@ -1,10 +1,10 @@
 all: client
 
-client: queue_client.o queue.o
-	gcc queue_client.o queue.o -o client
+client: queues_client.o queues.o
+	gcc queues_client.o queues.o -lm -o client
 
-queue_client.o: queue_client.c queue.h
-	gcc -ansi -Wall -pedantic-errors -Werror -c queue_client.c
+queues_client.o: queues_client.c queues.h
+	gcc -ansi -Wall -pedantic-errors -Werror -c queues_client.c
 
-queue.o: queue.c queue.h
-	gcc -ansi -Wall -pedantic-errors -Werror -c queue.c
+queues.o: queues.c queues.h
+	gcc -ansi -Wall -pedantic-errors -Werror -c queues.c
