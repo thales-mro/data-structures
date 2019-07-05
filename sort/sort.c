@@ -141,3 +141,31 @@ void mergeSortRec(int *v, int l, int r) {
 void mergeSort(int *v, int n) {
     mergeSortRec(v, 0, n - 1);
 }
+
+int partition(int *v, int l, int r) {
+    int i, pivot, pos;
+
+    pivot = v[l];
+    pos = r + 1;
+    for(i = r; i >= l; i--) {
+        if (v[i] >= pivot) {
+            pos--;
+            switchValues(&v[i], &v[pos]);
+        }
+    }
+    return pos;
+}
+
+void quickSortRec(int *v, int l, int r) {
+    int i;
+
+    if (r <= l)
+        return;
+    i = partition(v, l, r);
+    quickSortRec(v, l, i-1);
+    quickSortRec(v, i+1, r);
+}
+
+void quickSort(int *v, int n) {
+    quickSortRec(v, 0, n - 1);
+}

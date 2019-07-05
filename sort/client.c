@@ -57,6 +57,13 @@ int main() {
     mergeSort(v, n);
     printVector(v, n);
 
+    printf("Reset manipulated vector to original: ");
+    copy(original, v, n);
+    printVector(v, n);
+
+    printf("With Quick Sort: ");
+    quickSort(v, n);
+    printVector(v, n);
 
     freeVector(v);
     return 0;
