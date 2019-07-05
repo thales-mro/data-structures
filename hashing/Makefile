@@ -4,5 +4,5 @@ client: client.o hashing.o
 client.o: client.c hashing.h
 	gcc -c -ansi -Wall -pedantic-errors -Werror client.c hashing.h
 
-hashing.c: hashing.c hashing.h
+hashing.o: hashing.c hashing.h
 	gcc -c -ansi -Wall -pedantic-errors -Werror hashing.c hashing.h
