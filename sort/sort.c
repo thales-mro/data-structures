@@ -78,3 +78,28 @@ void selectionSort(int *v, int n) {
         switchValues(&v[i], &v[min]);
     }
 }
+
+void updateHeapTopToBottom(int *heap, int n, int k) {
+    int greatestChild;
+    if (LEFT_CHILD(k) < n) {
+        greatestChild = LEFT_CHILD(k);
+        if (RIGHT_CHILD(k) < n && heap[LEFT_CHILD(k)] < heap[RIGHT_CHILD(k)])
+            greatestChild = RIGHT_CHILD(k);
+        if (heap[k] < heap[greatestChild]) {
+            switchValues(&heap[k], &heap[greatestChild]);
+            updateHeapTopToBottom(heap, n, greatestChild);
+        }
+    }
+}
+
+void heapSort(int *v, int n) {
+    int k;
+
+    for (k = n/2; k >= 0; k--)
+        updateHeapTopToBottom(v, n, k);
+    while(n > 1) {
+        switchValues(&v[0], &v[n - 1]);
+        n--;
+        updateHeapTopToBottom(v, n, 0);
+    }
+}
