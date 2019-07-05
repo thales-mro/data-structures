@@ -1,9 +1,9 @@
 #define MAX 1783
 
-typedef struct {
+typedef struct Node{
     char key[10];
     int data;
-    Node * next;
+    struct Node * next;
 } Node;
 
 typedef Node * node_ptr;
@@ -20,6 +20,6 @@ void destroyHash(hash_ptr t);
 
 void insert(hash_ptr t, char *key, int data);
 
-void remove(hash_ptr t, char *key);
+void removeNode(hash_ptr t, char *key);
 
 node_ptr search(hash_ptr t, char *key);
