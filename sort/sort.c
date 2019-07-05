@@ -103,3 +103,41 @@ void heapSort(int *v, int n) {
         updateHeapTopToBottom(v, n, 0);
     }
 }
+
+void merge(int *v, int l, int m, int r) {
+    int i, j, k;
+    int aux[MAX];
+
+    i = l;
+    j = m + 1;
+    k = 0;
+
+    while(i <= m && j <= r) {
+        if (v[i] < v[j])
+            aux[k++] = v[i++];
+        else
+            aux[k++] = v[j++];
+    }
+
+    while (i <= m)
+        aux[k++] = v[i++];
+    while (j <= r)
+        aux[k++] = v[j++];
+
+    for (i = l, k = 0; i <= r; i++, k++) {
+        v[i] = aux[k];
+    }
+}
+
+void mergeSortRec(int *v, int l, int r) {
+    int m = (l + r)/2;
+    if (l < r) {
+        mergeSortRec(v, l, m);
+        mergeSortRec(v, m + 1, r);
+        merge(v, l, m, r);
+    }
+}
+
+void mergeSort(int *v, int n) {
+    mergeSortRec(v, 0, n - 1);
+}

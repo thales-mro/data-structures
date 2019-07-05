@@ -49,6 +49,15 @@ int main() {
     heapSort(v, n);
     printVector(v, n);
 
+    printf("Reset manipulated vector to original: ");
+    copy(original, v, n);
+    printVector(v, n);
+
+    printf("With Merge Sort: ");
+    mergeSort(v, n);
+    printVector(v, n);
+
+
     freeVector(v);
     return 0;
 }
