@@ -9,6 +9,8 @@ graph_ptr createGraph(int n);
 
 void destroyGraph(graph_ptr g);
 
+graph_ptr readGraph();
+
 void insertEdge(graph_ptr g, int u, int v);
 
 void removeEdge(graph_ptr g, int u, int v);
