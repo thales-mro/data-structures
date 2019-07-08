@@ -78,3 +78,31 @@ void printEdges(graph_ptr g) {
             if (g->adj[u][v])
                 printf("{%d,%d}\n", u, v);
 }
+
+int degree(graph_ptr g, int u) {
+    int v, degree;
+
+    degree = 0;
+    for(v = 0; v < g->n; v++)
+        if (g->adj[u][v])
+            degree++;
+
+    return degree;
+}
+
+int mostPopular(graph_ptr g) {
+    int u, max, maxDegree, deg;
+
+    max = 0;
+    maxDegree = degree(g, 0);
+
+    for (u = 1; u < g-> n; u++) {
+        deg = degree(g, u);
+        if (deg > maxDegree) {
+            maxDegree = deg;
+            max = u;
+        }
+    }
+
+    return max;
+}

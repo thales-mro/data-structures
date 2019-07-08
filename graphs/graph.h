@@ -18,3 +18,7 @@ void removeEdge(graph_ptr g, int u, int v);
 int hasEdge(graph_ptr g, int u, int v);
 
 void printEdges(graph_ptr g);
+
+int degree(graph_ptr g, int u);
+
+int mostPopular(graph_ptr g);
